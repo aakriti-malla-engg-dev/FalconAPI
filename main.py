@@ -1,16 +1,16 @@
-# This is a sample Python script.
+import json, falcon
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+class ObjRequestClass:
+    def on_get(self, req, res):
+        content = {
+            'name' : 'Aakriti',
+            'age' : '22',
+            'country' : 'India'
+        }
+        res.body = json.dumps(content)
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+api = falcon.API()
 
+api.add_route('/test', ObjRequestClass())
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
